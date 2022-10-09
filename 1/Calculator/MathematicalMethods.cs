@@ -1,16 +1,30 @@
 ﻿namespace Calculator
 {
-    internal class MathematicalMethods
+    public class MathematicalMethods
     {
-        public static double Add(double firstNumber, double secondNumber) => firstNumber + secondNumber;
-        public static double Subtract(double firstNumber, double secondNumber) => firstNumber - secondNumber;
-        public static double Multiply(double firstNumber, double secondNumber) => firstNumber * secondNumber;
-        public static double Divide(double firstNumber, double secondNumber) => firstNumber / secondNumber;
-        public static int Reminder(int firstNumber, int secondNumber) => firstNumber % secondNumber;
-        public static int Factorial(int number)
+        public double Add(double firstNumber, double secondNumber) => firstNumber + secondNumber;
+
+        public double Subtract(double firstNumber, double secondNumber) => firstNumber - secondNumber;
+
+        public double Multiply(double firstNumber, double secondNumber) => firstNumber * secondNumber;
+
+        public int Reminder(int firstNumber, int secondNumber) => firstNumber % secondNumber;
+
+        public double Divide(double firstNumber, double secondNumber)
+        {
+            if (secondNumber == 0)
+                throw new Exception("Cannot divide by zero");
+
+            return firstNumber / secondNumber;
+        }
+
+        public int Factorial(int number)
         {
             if(number == 0)
                 return 1;
+
+            if(number < 0)
+                throw new Exception("Cannot count factorial from negative numbers");
 
             int result = 1;
 
