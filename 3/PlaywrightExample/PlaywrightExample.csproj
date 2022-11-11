@@ -114,7 +114,9 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="KfdHomePageGoogleChromeTests.cs" />
+        <Compile Include="KuchniaLidlaPageGoogleChromeTests.cs" />
         <Compile Include="PageObjects\KfdHomePage.cs" />
+        <Compile Include="PageObjects\KuchniaLidlaPage.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

@@ -5,8 +5,7 @@ using PlaywrightExample.PageObjects;
 
 namespace PlaywrightExample
 {
-    [TestFixture]
-    public class KfdHomePageGoogleChromeTests
+    public class KuchniaLidlaPageGoogleChromeTests
     {
         private IPlaywright _playwright;
         private IBrowser _browser;
@@ -25,19 +24,19 @@ namespace PlaywrightExample
 
         [TearDown]
         public async Task DisposeBrowser() => await _browser.DisposeAsync();
-        
+
         [Test]
-        public async Task AddedProduct_IsShown_InShoppingCart()
+        public async Task FilteringRecipes_IsSuggesting_CorrectRecipes()
         {
             var page = await _browser.NewPageAsync();
-            var kfdHomePage = new KfdHomePage(page);
+            var kuchniaLidlaPage = new KuchniaLidlaPage(page);
             
-            await page.GotoAsync("https://sklep.kfd.pl/");
-            
-            await kfdHomePage.IsShoppingCartEnabled();
-            await kfdHomePage.SearchForProduct("whey gold");
-            await kfdHomePage.AddPremiumWheyProductToShoppingCart();
-            await kfdHomePage.IsPremiumWheyProductVisibleInShoppingCart();
+            await page.GotoAsync("https://kuchnialidla.pl/");
+
+            await kuchniaLidlaPage.ClickAcceptCookies();
+            await kuchniaLidlaPage.SearchForRecipe("pierogi z kaczka");
+            await kuchniaLidlaPage.ClickDuckDumplingsRecipe();
+            await kuchniaLidlaPage.RecipeHeaderIsVisible();
         }
     }
 }
